@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,100;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Finance</title>
+</head>
+
+<body>
+    <header>
+        <img src="assets/logo.svg" alt="Logo Dev Finance">
+    </header>
+
+    <main class="container">
+        <section id="balance">
+            <h2 class="sr-only">Balanço</h2>
+
+            <div class="card" tabindex="0" aria-labelledby="entradas-caption" aria-describedby="incomeDisplay">
+                <h3>
+                    <span id="entradas-caption">
+                        Entradas
+                    </span>
+                    <img src="assets/income.svg" alt="Image de entradas" aria-hidden="true">
+                </h3>
+                <p id="incomeDisplay">R$ 5.000,00</p>
+            </div>
+
+            <div class="card" tabindex="0" aria-labelledby="saidas-caption" aria-describedby="expenseDisplay">
+                <h3>
+                    <span id="saidas-caption">
+                        Saídas
+                    </span>
+                    <img src="./assets/expense.svg" alt="Image de saídas" aria-hidden="true">
+                </h3>
+                <p id="expenseDisplay">R$ 2.000,00</p>
+            </div>
+
+            <div class="card total" tabindex="0" aria-labelledby="total-caption" aria-describedby="totalDisplay">
+                <h3>
+                    <span id="total-caption">
+                        Total
+                    </span>
+                    <img src="assets/total.svg" alt="Image de total" aria-hidden="true">
+                </h3>
+                <p id="totalDisplay">R$ 3.000,00</p>
+            </div>
+
+        </section>
+
+        <section id="transaction">
+            <h2 class="sr-only">Transações</h2>
+            <a href="#" onclick="Modal.open()" class="button new" aria-label="Adicionar nova transação">+ Nova
+                Transação</a>
+
+            <table id="data-table" tabindex="0" summary="Tabela de Transações">
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Data</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <div class="modal-overlay" aria-modal="true" tabindex="0">
+        <div class="modal" role="dialog" aria-labelledby="modal-title">
+            <div id="form">
+                <h2 id="modal-title">Nova Transação</h2>
+                <form action="" onsubmit="Form.submit(event)">
+        
+                    <div class="input-group" aria-labelledby="description-caption">
+                        <label id="description-caption" class="sr-only" for="description"> Insira a descrição da
+                            transação</label>
+                        <input type="text" id="description" placeholder=" Descrição" />
+                    </div>
+        
+                    <div class="input-group" aria-labelledby="amount-caption">
+                        <label id="amount-caption" class="sr-only" for="amount"> Insira o valor da transação, use o
+                            sinal - (negativo) para despesas e , (vírgula) para casas decimais </label>
+                        <input type="number" step="0.01" id="amount" placeholder="0,00" />
+                        <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas
+                            decimais</small>
+                    </div>
+        
+                    <div class="input-group" aria-labelledby="date-caption">
+                        <label id="date-caption" class="sr-only" for="date"> Insira a data da transação </label>
+                        <input type="date" id="date" name="date" />
+                    </div>
+
+                    <div class="input-group actions">
+                        <a onclick="Modal.close()" onkeypress="Modal.close()" role="button" href="#"
+                            class="button cancel" aria-label="Cancelar">Cancelar</a>
+                        <button> Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>Dev finances </footer>
+    <script src="scripts.js"></script>
+
+</body>
+</html>
